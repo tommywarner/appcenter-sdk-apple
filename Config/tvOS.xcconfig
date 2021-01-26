@@ -1,5 +1,4 @@
 SDKROOT = appletvos
-SKIP_INSTALL = YES
 TARGETED_DEVICE_FAMILY = 3
 
 OTHER_CFLAGS = $(inherited) -fembed-bitcode-marker
