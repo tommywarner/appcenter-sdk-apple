@@ -41,6 +41,15 @@
  */
 @property(nonatomic, copy) NSString *wrapperSdkName;
 
+/*
+ * Convert NSException to MSACException.
+ *
+ * @param exception - NSException exception.
+ *
+ * @return MSACException exception.
+ */
++ (MSACException*)convertNSExceptionToMSACException:(NSException*)exception;
+
 /**
  * Checks if the object's values are valid.
  *

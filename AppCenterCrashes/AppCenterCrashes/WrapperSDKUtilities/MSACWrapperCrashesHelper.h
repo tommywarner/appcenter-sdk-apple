@@ -66,20 +66,6 @@ NS_SWIFT_NAME(WrapperCrashesHelper)
 + (void)sendErrorAttachments:(NSArray<MSACErrorAttachmentLog *> *)errorAttachments withIncidentIdentifier:(NSString *)incidentIdentifier;
 
 /**
- * Track handled exception directly as model form.
- * This API is used by wrapper SDKs.
- *
- * @param exception model form exception.
- * @param properties dictionary of properties.
- * @param attachments a list of attachments.
- *
- * @return handled error ID.
- */
-+ (nullable NSString *)trackModelException:(MSACException *)exception
-                            withProperties:(nullable NSDictionary<NSString *, NSString *> *)properties
-                           withAttachments:(nullable NSArray<MSACErrorAttachmentLog *> *)attachments;
-
-/**
  * Get a generic error report representation for an handled exception.
  * This API is used by wrapper SDKs.
  *

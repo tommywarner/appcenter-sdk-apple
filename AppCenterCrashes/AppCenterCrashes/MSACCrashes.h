@@ -14,6 +14,8 @@
 #endif
 
 @class MSACCrashesDelegate;
+@class MSACException;
+@class MSACErrorAttachmentLog;
 
 /**
  * Custom block that handles the alert that prompts the user whether crash reports need to be processed or not.
@@ -68,6 +70,18 @@ typedef NS_ENUM(NSUInteger, MSACUserConfirmation) {
 
 NS_SWIFT_NAME(Crashes)
 @interface MSACCrashes : MSACServiceAbstract
+
+/**
+ * Track handled exception directly as model form.
+ *
+ * @param exception model form exception.
+ * @param properties dictionary of properties.
+ * @param attachments a list of attachments.
+ *
+ */
++ (void)trackError:(NSException *_Nonnull)exception
+                            withProperties:(nullable NSDictionary<NSString *, NSString *> *)properties
+                           withAttachments:(nullable NSArray<MSACErrorAttachmentLog *> *)attachments;
 
 ///-----------------------------------------------------------------------------
 /// @name Testing Crashes Feature

@@ -13,6 +13,14 @@ static NSString *const kMSACWrapperSDKName = @"wrapperSdkName";
 
 @implementation MSACException
 
++(MSACException*)convertNSExceptionToMSACException:(NSException*)exception {
+    MSACException* msacException = [MSACException new];
+    msacException.type = exception.name;
+    msacException.message = exception.reason;
+    msacException.stackTrace = exception.callStackSymbols.description;
+    return msacException;
+}
+
 - (NSMutableDictionary *)serializeToDictionary {
 
   NSMutableDictionary *dict = [NSMutableDictionary new];
