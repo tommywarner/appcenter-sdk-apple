@@ -15,9 +15,15 @@ static NSString *const kMSACWrapperSDKName = @"wrapperSdkName";
 
 +(MSACException*)convertNSExceptionToMSACException:(NSException*)exception {
     MSACException* msacException = [MSACException new];
-    msacException.type = exception.name;
-    msacException.message = exception.reason;
-    msacException.stackTrace = exception.callStackSymbols.description;
+    if (exception.name) {
+        msacException.type = exception.name;
+    }
+    if (exception.reason) {
+        msacException.message = exception.reason;
+    }
+    if (exception.callStackSymbols.description) {
+        msacException.stackTrace = exception.callStackSymbols.description;
+    }
     return msacException;
 }
 

@@ -78,8 +78,9 @@ NS_SWIFT_NAME(Crashes)
  * @param properties dictionary of properties.
  * @param attachments a list of attachments.
  *
+ * @return handled error ID.
  */
-+ (void)trackError:(NSException *_Nonnull)exception
++ (NSString *_Nonnull)trackError:(NSException *_Nonnull)exception
                             withProperties:(nullable NSDictionary<NSString *, NSString *> *)properties
                            withAttachments:(nullable NSArray<MSACErrorAttachmentLog *> *)attachments;
 

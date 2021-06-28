@@ -216,11 +216,12 @@ __attribute__((noreturn)) static void uncaught_cxx_exception_handler(const MSACC
  * @param properties dictionary of properties.
  * @param attachments a list of attachments.
  *
+ * @return handled error ID.
  */
-+ (void)trackError:(NSException *)exception
++ (NSString *)trackError:(NSException *)exception
                    withProperties:(nullable NSDictionary<NSString *, NSString *> *)properties
                   withAttachments:(nullable NSArray<MSACErrorAttachmentLog *> *)attachments {
-    [[MSACCrashes sharedInstance] handleTrackError:[MSACException convertNSExceptionToMSACException:exception] withProperties:properties withAttachments:attachments];
+    return [[MSACCrashes sharedInstance] trackError:[MSACException convertNSExceptionToMSACException:exception] withProperties:properties withAttachments:attachments];
 }
 
 + (void)generateTestCrash {
@@ -1369,7 +1370,7 @@ __attribute__((noreturn)) static void uncaught_cxx_exception_handler(const MSACC
 
 #pragma mark - Handled exceptions
 
-- (NSString *)handleTrackError:(MSACException *_Nonnull)exception
+- (NSString *)trackError:(MSACException *_Nonnull)exception
                    withProperties:(nullable NSDictionary<NSString *, NSString *> *)properties
                   withAttachments:(nullable NSArray<MSACErrorAttachmentLog *> *)attachments {
   @synchronized(self) {

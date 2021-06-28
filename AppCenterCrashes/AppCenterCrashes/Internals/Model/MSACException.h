@@ -37,7 +37,7 @@
 
 /*
  * Name of the wrapper SDK that emitted this exception.
- * Consists of the name of the SDK and the wrapper platform, e.g. "appcenter.xamarin", "hockeysdk.cordova".
+ * Consists of the name of the SDK and the wrapper platform, e.g. "appcenter.xamarin", "hockeysdk.cordova" [optional].
  */
 @property(nonatomic, copy) NSString *wrapperSdkName;
 
