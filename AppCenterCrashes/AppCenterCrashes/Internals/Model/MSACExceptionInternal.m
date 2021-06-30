@@ -11,7 +11,6 @@ static NSString *const kMSACWrapperSDKName = @"wrapperSdkName";
 @implementation MSACExceptionInternal
 
 - (NSMutableDictionary *)serializeToDictionary {
-
   NSMutableDictionary *dict = [super serializeToDictionary];
   if (self.wrapperSdkName) {
     dict[kMSACWrapperSDKName] = self.wrapperSdkName;
