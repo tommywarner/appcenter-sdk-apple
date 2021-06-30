@@ -2,13 +2,13 @@
 // Licensed under the MIT License.
 
 #import "MSACExceptionModel.h"
-#import "MSACException.h"
+#import "MSACExceptionInternal.h"
 #import "MSACStackFrame.h"
 
 static NSString *const kMSACInnerExceptions = @"innerExceptions";
 static NSString *const kMSACWrapperSDKName = @"wrapperSdkName";
 
-@implementation MSACException
+@implementation MSACExceptionInternal
 
 - (NSMutableDictionary *)serializeToDictionary {
 
@@ -18,7 +18,7 @@ static NSString *const kMSACWrapperSDKName = @"wrapperSdkName";
   }
   if (self.innerExceptions) {
     NSMutableArray *exceptionsArray = [NSMutableArray array];
-    for (MSACException *exception in self.innerExceptions) {
+    for (MSACExceptionInternal *exception in self.innerExceptions) {
       [exceptionsArray addObject:[exception serializeToDictionary]];
     }
     dict[kMSACInnerExceptions] = exceptionsArray;
@@ -31,10 +31,10 @@ static NSString *const kMSACWrapperSDKName = @"wrapperSdkName";
 }
 
 - (BOOL)isEqual:(id)object {
-  if (![(NSObject *)object isKindOfClass:[MSACException class]]) {
+  if (![(NSObject *)object isKindOfClass:[MSACExceptionInternal class]]) {
     return NO;
   }
-  MSACException *exception = (MSACException *)object;
+  MSACExceptionInternal *exception = (MSACExceptionInternal *)object;
   return ((!super.type && !exception.type) || [super.type isEqualToString:exception.type]) &&
          ((!self.wrapperSdkName && !exception.wrapperSdkName) || [self.wrapperSdkName isEqualToString:exception.wrapperSdkName]) &&
          ((!super.message && !exception.message) || [super.message isEqualToString:exception.message]) &&

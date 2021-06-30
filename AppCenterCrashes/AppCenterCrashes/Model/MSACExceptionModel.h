@@ -36,11 +36,11 @@ static NSString *const kMSACExceptionModelStackTrace = @"stackTrace";
     @property(nonatomic) NSArray<MSACStackFrame *> *frames;
 
     /*
-     * Convert NSError to MSACException.
+     * Convert NSError to MSACExceptionModel.
      *
      * @param error - NSError object.
      *
-     * @return MSACException exception.
+     * @return MSACExceptionModel exception.
      */
     + (MSACExceptionModel*)convertNSErrorToMSACExceptionModel:(NSError*)error;
 

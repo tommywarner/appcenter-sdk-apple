@@ -6,12 +6,12 @@
 #import "MSACSerializableObject.h"
 #import "MSACExceptionModel.h"
 
-@interface MSACException : MSACExceptionModel
+@interface MSACExceptionInternal : MSACExceptionModel
 
 /*
  * Inner exceptions of this exception [optional].
  */
-@property(nonatomic) NSArray<MSACException *> *innerExceptions;
+@property(nonatomic) NSArray<MSACExceptionInternal *> *innerExceptions;
 
 /*
  * Name of the wrapper SDK that emitted this exception.
