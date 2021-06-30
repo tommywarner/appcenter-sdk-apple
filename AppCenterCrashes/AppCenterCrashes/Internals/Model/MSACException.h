@@ -3,32 +3,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AppCenter+Internal.h"
 #import "MSACSerializableObject.h"
+#import "MSACExceptionModel.h"
 
-@class MSACStackFrame;
-
-@interface MSACException : NSObject <MSACSerializableObject>
-
-/*
- * Exception type.
- */
-@property(nonatomic, copy) NSString *type;
-
-/*
- * Exception reason.
- */
-@property(nonatomic, copy) NSString *message;
-
-/*
- * Raw stack trace. Sent when the frames property is either missing or unreliable.
- */
-@property(nonatomic, copy) NSString *stackTrace;
-
-/*
- * Stack frames [optional].
- */
-@property(nonatomic) NSArray<MSACStackFrame *> *frames;
+@interface MSACException : MSACExceptionModel
 
 /*
  * Inner exceptions of this exception [optional].
@@ -40,21 +18,5 @@
  * Consists of the name of the SDK and the wrapper platform, e.g. "appcenter.xamarin", "hockeysdk.cordova" [optional].
  */
 @property(nonatomic, copy) NSString *wrapperSdkName;
-
-/*
- * Convert NSException to MSACException.
- *
- * @param exception - NSException exception.
- *
- * @return MSACException exception.
- */
-+ (MSACException*)convertNSExceptionToMSACException:(NSException*)exception;
-
-/**
- * Checks if the object's values are valid.
- *
- * @return YES, if the object is valid.
- */
-- (BOOL)isValid;
 
 @end

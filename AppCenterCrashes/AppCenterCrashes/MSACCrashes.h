@@ -14,7 +14,7 @@
 #endif
 
 @class MSACCrashesDelegate;
-@class MSACException;
+@class MSACExceptionModel;
 @class MSACErrorAttachmentLog;
 
 /**
@@ -74,13 +74,26 @@ NS_SWIFT_NAME(Crashes)
 /**
  * Track handled exception directly as model form.
  *
- * @param exception model form exception.
+ * @param error model form error.
  * @param properties dictionary of properties.
  * @param attachments a list of attachments.
  *
  * @return handled error ID.
  */
-+ (NSString *_Nonnull)trackError:(NSException *_Nonnull)exception
++ (NSString *_Nonnull)trackError:(NSError *_Nonnull)error
+                            withProperties:(nullable NSDictionary<NSString *, NSString *> *)properties
+                           withAttachments:(nullable NSArray<MSACErrorAttachmentLog *> *)attachments;
+
+/**
+ * Track handled exception from custom exception model.
+ *
+ * @param exceptionModel custom model exception.
+ * @param properties dictionary of properties.
+ * @param attachments a list of attachments.
+ *
+ * @return handled error ID.
+ */
++ (NSString *_Nonnull)trackExceptionModel:(MSACExceptionModel *_Nonnull)exceptionModel
                             withProperties:(nullable NSDictionary<NSString *, NSString *> *)properties
                            withAttachments:(nullable NSArray<MSACErrorAttachmentLog *> *)attachments;
 
