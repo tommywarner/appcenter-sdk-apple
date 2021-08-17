@@ -76,7 +76,7 @@ NS_SWIFT_NAME(AppCenter)
  *
  * @param services Array of services to start.
  */
-+ (void)startFromLibraryWithServices:(NSArray<Class> *)services NS_SWIFT_NAME(startFromLibrary(services:));
++ (void)startFromLibraryWithServices:(NSArray<Class> *)services withAppSecret:(NSString*)appSecret;
 
 /**
  * The flag indicates whether the SDK has already been configured or not.

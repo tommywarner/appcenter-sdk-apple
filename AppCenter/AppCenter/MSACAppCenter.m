@@ -103,8 +103,8 @@ static const long kMSACMinUpperSizeLimitInBytes = 24 * 1024;
                                 fromApplication:YES];
 }
 
-+ (void)startFromLibraryWithServices:(NSArray<Class> *)services {
-  [[MSACAppCenter sharedInstance] start:nil withServices:services fromApplication:NO];
++ (void)startFromLibraryWithServices:(NSArray<Class> *)services withAppSecret:(NSString*)appSecret {
+  [[MSACAppCenter sharedInstance] start:appSecret withServices:services fromApplication:NO];
 }
 
 + (BOOL)isConfigured {
