@@ -13,7 +13,7 @@
 #if !TARGET_OS_OSX
   return UIAccessibilityIsGuidedAccessEnabled();
 #else
-    return no;
+    return NO;
 #endif
 }
 
